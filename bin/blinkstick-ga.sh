@@ -32,7 +32,7 @@ while read currentValue #foreach number
     then echo ""; echo $currentValue #flash blinkstick
       color=`echo $currentValue | pawk -B "colors=\"$colors\".split(\",\")" "colors[int(math.log(int(f[0]),$granularity))] if int(math.log(int(f[0]),$granularity)) < len(colors) else colors[-1]"`
       blinkstick --set-color=$color --pulse > /dev/null
-      lastValue=$currentValue
     fi
+    lastValue=$currentValue
     echo -n .
   done
