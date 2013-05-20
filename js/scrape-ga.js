@@ -1,3 +1,2 @@
-
-var img = document.createElement("img");
- window.setInterval(function(){img.src = "http://localhost:8080/"+document.getElementById("ID-overviewCounterValue").innerHTML},1000);
+//Google analytics scraping bookmarklet, requires port and element ID
+javascript:(function(){var port = 8080; var elementId="ID-overviewCounterValue"; var img = document.createElement("img");window.setInterval(function(){img.src = "http://localhost:"+port+"/"+document.getElementById(elementId).innerHTML},1000);})();

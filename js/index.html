@@ -1,0 +1,16 @@
+<html>
+<body>
+Drag this link to you BookMarks bar &rarr; <a id="bookmark" href=>GA</a><br/>
+To change the port change here: <input id="port" value="8080" onChange="setBookMark()"/><br/>
+To change selector change here: <input id="selector" value="ID-overviewCounterValue" onChange="setBookMark()"/>
+<div id="code" style="font-family:monospace"></div>
+<!-- TODO: Change bookmarklet to embed JQuery and use a JQuery selector-->
+<script>
+function setBookMark(){
+document.getElementById("bookmark").href = "javascript:(function(){var port = "+document.getElementById("port").value+"; var elementId='"+document.getElementById("selector").value+"'; var img = document.createElement('img');window.setInterval(function(){img.src = 'http://localhost:'+port+'/'+document.getElementById(elementId).innerHTML},1000);})();";
+document.getElementById("code").innerHTML = document.getElementById("bookmark").href;
+}
+setBookMark();
+</script>
+</body>
+</html>
